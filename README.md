@@ -77,10 +77,10 @@ Things you may want to cover:
 
 ## transactionsテーブル
 
-| Column  | Type      | Options                        |
-| ------- | --------- | ------------------------------ |
-| user_id | string    | null: false                    |
-| item_id | reference | null: false, foreign_key: true |
+| Column  | Type    | Options                        |
+| ------- | ------- | ------------------------------ |
+| user_id | integer | null: false, foreign_key: true |
+| item_id | integer | null: false, foreign_key: true |
 
 ### Association
 
