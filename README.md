@@ -48,11 +48,11 @@ Things you may want to cover:
 | ---------------- | ---------- | ------------------------------ |
 | name             | string     | null: false                    |
 | description      | text       | null: false                    |
-| category_id      | integer    | null: false                    |
-| condition_id     | integer    | null: false                    |
-| postage_id       | integer    | null: false                    |
-| prefecture_id    | integer    | null: false                    |
-| shipping_days_id | integer    | null: false                    |
+| category_id      | integer    | null: false, foreign_key: true |
+| condition_id     | integer    | null: false, foreign_key: true |
+| postage_id       | integer    | null: false, foreign_key: true |
+| prefecture_id    | integer    | null: false, foreign_key: true |
+| shipping_days_id | integer    | null: false, foreign_key: true |
 | price            | integer    | null: false                    |
 | user_id          | integer    | null: false, foreign_key: true |
 
@@ -66,7 +66,7 @@ Things you may want to cover:
 | Column         | Type       | Options                        |
 | -------------- | ------     | ------------------------------ |
 | post_code      | string     | null: false                    |
-| prefecture_id  | integer    | null: false                    |
+| prefecture_id  | integer    | null: false, foreign_key: true |
 | city           | string     | null: false                    |
 | house_number   | string     | null: false                    |
 | building_name  | string     |                                |
