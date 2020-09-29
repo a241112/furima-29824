@@ -6,5 +6,6 @@ class ItemsController < ApplicationController
     @item = Condition.all
     @item = Postage.all
     @item = Prefecture.all
+    @item = ShippingDay.all
   end
 end
