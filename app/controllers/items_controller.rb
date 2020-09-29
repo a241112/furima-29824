@@ -3,5 +3,6 @@ class ItemsController < ApplicationController
   end
   def new
     @item = Category.all
+    @item = Condition.all
   end
 end
