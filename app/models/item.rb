@@ -10,4 +10,7 @@ class Item < ApplicationRecord
 
   validates :image, :name, :describe, :category, :condition, :postage, :prefecture, :shipping_day, :price, presence: true
   validates :price , format: { with: /\A[0-9]+\z/}, inclusion: {in: 300..9999999 }
+
+  validates :category_id, :condition, :postage, :shipping_day, numericality: { other_than: 1 } 
+  validates :prefecture_id, numericality: { other_than: 0 } 
 end
