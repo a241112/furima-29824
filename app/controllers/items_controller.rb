@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    Item.create(params[:item])
   end
 
   private
