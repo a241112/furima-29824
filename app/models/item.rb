@@ -6,9 +6,10 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :shipping_day
 
+  belongs_to :user
   has_one_attached :image
 
-  validates :image, :name, :describe, :category, :condition, :postage, :prefecture, :shipping_day, :price, presence: true
+  validates :image, :name, :description, :category, :condition, :postage, :prefecture, :shipping_day, :price, presence: true
   validates :price , format: { with: /\A[0-9]+\z/}, inclusion: {in: 300..9999999 }
 
   validates :category_id, :condition, :postage, :shipping_day, numericality: { other_than: 1 } 
