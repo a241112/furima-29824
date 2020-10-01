@@ -4,11 +4,7 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Category.all
-    @item = Condition.all
-    @item = Postage.all
-    @item = Prefecture.all
-    @item = ShippingDay.all
+    @item = Item.new
   end
 
   def create
