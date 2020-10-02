@@ -9,9 +9,14 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-  # validates :image, :name, :description, :category, :condition, :postage, :prefecture, :shipping_day, :price, presence: true
-  # validates :price , format: { with: /\A[0-9]+\z/}, inclusion: {in: 300..9999999 }
+  validates :image, :name, :description, :category, :condition, :postage, :prefecture, :shipping_day, :price, presence: true
+  validates :price, format: { with: /\A[0-9]+\z/ }, inclusion: { in: 300..9_999_999 }
 
-  # validates :category_id, :condition, :postage, :shipping_day, numericality: { other_than: 1 } 
-  # validates :prefecture_id, numericality: { other_than: 0 } 
+  with_options numericality: { other_than: 1 } do
+    validates :category_id
+    validates :condition_id
+    validates :postage_id
+    validates :shipping_day_id
+  end
+  validates :prefecture_id, numericality: { other_than: 0 }
 end
