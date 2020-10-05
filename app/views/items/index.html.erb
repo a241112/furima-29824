@@ -127,7 +127,6 @@
     <ul class='item-lists'>
 
     <% if @item.length > 0 %>
-      <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
       <% @item.each do |item| %>
       <li class='list'>
         <%= link_to "#" do %>
@@ -143,7 +142,7 @@
         </div>
         <div class='item-info'>
           <h3 class='item-name'>
-            <%= "#{item.name}" %>
+            <%= item.name %>
           </h3>
           <div class='item-price'>
             <span><%= "#{item.price}" %>円<br>(税込み)</span>
@@ -156,7 +155,6 @@
         <% end %>
       <% end %>
       </li>
-      <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
     <% else %>
       <%# 商品がない場合のダミー %>
       <li class='list'>
