@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_day
 
   belongs_to :user
-  has_one :transaction
+  has_one :purchase
   has_one_attached :image
 
   validates :image, :name, :description, :category, :condition, :postage, :prefecture, :shipping_day, :price, presence: true
