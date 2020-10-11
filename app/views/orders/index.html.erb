@@ -31,7 +31,7 @@
     </div>
     <%# /支払額の表示 %>
 
-    <%= form_with url: purchases_path , id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
+    <%= form_with url: orders_path , id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
     <%# カード情報の入力 %>
     <div class='credit-card-form'>
       <h1 class='info-input-haedline'>
@@ -110,7 +110,7 @@
           <label class="form-text">建物名</label>
           <span class="form-any">任意</span>
         </div>
-        <%= f.text_field :building_number, class:"input-default", id:"building", placeholder:"例）柳ビル103"%>
+        <%= f.text_field :building_name, class:"input-default", id:"building", placeholder:"例）柳ビル103"%>
       </div>
       <div class="form-group">
         <div class='form-text-wrap'>
