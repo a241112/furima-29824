@@ -12,6 +12,16 @@ class OrdersController < ApplicationController
   end
 
   private
+  
+  def pay_item
+    @item = Item.find(params[:item_id])
+    Payjp.api_key = "sk_test_f3f58ebe7dec6eb9e9f9389c"
+    Payjp::Charge.create(
+      amount: @item.price,
+      card: order_params[:token],
+      currency: 'jpy'
+    )
+  end
 
   def order_params
     params.merge(token: params[:token])
