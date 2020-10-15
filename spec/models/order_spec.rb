@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Order, type: :model do
-  before do 
+  before do
     @order = FactoryBot.build(:order)
   end
-  
+
   describe '商品購入機能' do
     context '商品が購入できるとき' do
       it 'token、post_code、prefecture_id、city、house_number、phone_numberが存在すれば購入できる' do
@@ -15,7 +15,7 @@ RSpec.describe Order, type: :model do
         expect(@order).to be_valid
       end
     end
-    
+
     context '商品が購入できないとき' do
       it 'tokenが空では購入できない' do
         @order.token = nil
@@ -50,7 +50,7 @@ RSpec.describe Order, type: :model do
       it 'post_cideが半角のハイフンを含んだ正しい形式でなければ購入できない' do
         @order.post_code = '1234567'
         @order.valid?
-        expect(@order.errors.full_messages).to include("Post code is invalid. Include hyphen(-)")
+        expect(@order.errors.full_messages).to include('Post code is invalid. Include hyphen(-)')
       end
       it 'phone_numberにハイフンがあれば購入できない' do
         @order.phone_number = '090-1111-2222'
@@ -59,12 +59,12 @@ RSpec.describe Order, type: :model do
       it 'phone_numberが半角でなければ購入できない' do
         @order.phone_number = '０９０１１１１２２２２'
         @order.valid?
-        expect(@order.errors.full_messages).to include("Phone number is invalid. Input half-width numbers.")
+        expect(@order.errors.full_messages).to include('Phone number is invalid. Input half-width numbers.')
       end
       it 'phone_numberが11桁以上であれば保存できない' do
         @order.phone_number = '090111122222'
         @order.valid?
-        expect(@order.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
+        expect(@order.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
       end
     end
   end
