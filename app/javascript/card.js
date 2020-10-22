@@ -20,9 +20,6 @@ const pay = () => {
         const renderDom = document.getElementById("charge-form");
         const tokenObj = `<input value=${token} name='token' type="hidden">`;
         renderDom.insertAdjacentHTML("beforeend", tokenObj);
-        alert('決済が成功しました。')
-      }else{
-        alert("決済に失敗しました")
       }
 
       document.getElementById("card-number").removeAttribute("name");

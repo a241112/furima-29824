@@ -11,13 +11,13 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   validates :image, :name, :description, :category, :condition, :postage, :prefecture, :shipping_day, :price, presence: true
-  validates :price, format: { with: /\A[0-9]+\z/ }, inclusion: { in: 300..9_999_999 }
+  validates :price, format: { with: /\A[0-9]+\z/, message: "は半角数字で入力してください" }, inclusion: { in: 300..9_999_999, message: "は¥300~¥9,999,999で入力してください" }
 
-  with_options numericality: { other_than: 1 } do
+  with_options numericality: { other_than: 1, message: "を選択してください" } do
     validates :category_id
     validates :condition_id
     validates :postage_id
     validates :shipping_day_id
   end
-  validates :prefecture_id, numericality: { other_than: 0 }
+  validates :prefecture_id, numericality: { other_than: 0, message: "を選択してください" }
 end
