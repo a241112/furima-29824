@@ -10,8 +10,8 @@ class Item < ApplicationRecord
   has_one :purchase
   has_one_attached :image
 
-  validates :image, :name, :description, :category, :condition, :postage, :prefecture, :shipping_day, :price, presence: true
-  validates :price, format: { with: /\A[0-9]+\z/, message: "は半角数字で入力してください" }, inclusion: { in: 300..9_999_999, message: "は¥300~¥9,999,999で入力してください" }
+  validates :image, :name, :description, :category, :condition, :postage, :prefecture, :shipping_day, presence: true
+  validates :price, presence: true, format: { with: /\A[0-9]+\z/ , message: "は半角数字で入力してください" }, inclusion: { in: 300..9_999_999, message: "は¥300~¥9,999,999で入力してください" }
 
   with_options numericality: { other_than: 1, message: "を選択してください" } do
     validates :category_id
